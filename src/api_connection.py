@@ -2,8 +2,8 @@ import requests
 
 BASE_URL = "https://pokeapi.co/api/v2/pokemon/"
 
-def get_pokemon_data(pokemon_name):
-    url = f"{BASE_URL}{pokemon_name.lower()}"
+def get_pokemon_data(pokemon_id):
+    url = f"{BASE_URL}{pokemon_id}"
     response = requests.get(url)
 
     if response.status_code != 200:
@@ -25,3 +25,13 @@ def get_pokemon_data(pokemon_name):
     }
 
     return pokemon
+
+def get_all_pokemon_data():
+    all_pokemon_data = []
+    
+    for i in range(1, 152):  # Поколение 1, 151 покемон
+        pokemon_data = get_pokemon_data(i)
+        if pokemon_data:
+            all_pokemon_data.append(pokemon_data)
+    
+    return all_pokemon_data
