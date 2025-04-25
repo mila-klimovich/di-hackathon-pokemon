@@ -7,12 +7,11 @@ def get_pokemon_data(pokemon_id):
     response = requests.get(url)
 
     if response.status_code != 200:
-        print(f"Ошибка: {response.status_code}")
+        print(f"Error: {response.status_code}")
         return None
 
     data = response.json()
 
-    # Извлекаем основные поля
     pokemon = {
         "id": data["id"],
         "name": data["name"],
@@ -29,7 +28,7 @@ def get_pokemon_data(pokemon_id):
 def get_all_pokemon_data():
     all_pokemon_data = []
     
-    for i in range(1, 152):  # Поколение 1, 151 покемон
+    for i in range(1, 152):  
         pokemon_data = get_pokemon_data(i)
         if pokemon_data:
             all_pokemon_data.append(pokemon_data)

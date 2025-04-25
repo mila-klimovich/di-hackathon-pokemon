@@ -10,7 +10,7 @@ def main():
         for pokemon in data:
             print(f"ID: {pokemon['id']}, Name: {pokemon['name']}, Types: {pokemon['types']}")
     else:
-        print("Нет данных о покемонах")
+        print("No data")
 
 if __name__ == "__main__":
     main()
